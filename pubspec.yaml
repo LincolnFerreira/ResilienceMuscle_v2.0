@@ -76,8 +76,14 @@ flutter:
     - family: Jura
       fonts:
         - asset: assets/fonts/jura/JuraBook.ttf
-        - asset: assets/fonts/jura/JuraDemiBold.ttf
         - asset: assets/fonts/jura/JuraLight.ttf
+
+    - family: JuraDemiBold
+      fonts:
+        - asset: assets/fonts/jura/JuraDemiBold.ttf
+
+    - family: JuraMedium
+      fonts:
         - asset: assets/fonts/jura/JuraMedium.ttf
   #   - family: Schyler
   #     fonts:

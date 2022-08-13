@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:testef/TesteStatefull.dart';
 import 'package:testef/loginUser.dart';
 import 'package:testef/configUser.dart';
+import 'home.dart';
 
-import 'dev.dart';
 void main() {
   runApp(
     MaterialApp(
@@ -10,7 +11,7 @@ void main() {
       color: Pallete.white,
       //remove o banner de debug
       debugShowCheckedModeBanner: false,
-      home: dev(),
+      home: home(),
     ),
   );
 }
@@ -21,6 +22,9 @@ class Pallete {
   static const Color second = Color(0xffb5666F6);
   static const Color white = Color(0xffbEFEFEF);
   static const Color green = Color(0xffb00DA87);
+  static const Color gradientDark = Color(0x212121);
+  static const Color gradientWhite = Color(0xffb000000);
+  static const Color whiteGrey = Color(0xffbC9C9C9);
 }
 
 class Home extends StatelessWidget {
@@ -39,7 +43,11 @@ class Home extends StatelessWidget {
           children: <Widget>[
             const Text(
               'Seja bem vindo!',
-              style: TextStyle(color: Pallete.white, fontSize: 20, fontFamily: 'Jura', fontWeight: FontWeight.w800),
+              style: TextStyle(
+                  color: Pallete.white,
+                  fontSize: 20,
+                  fontFamily: 'Jura',
+                  fontWeight: FontWeight.w800),
             ),
             SizedBox(height: 30),
             Image.asset(
@@ -51,7 +59,11 @@ class Home extends StatelessWidget {
               TextSpan(
                   text: 'Vamos começar a mudar o\n'
                       'modo como vê sua\n',
-                  style: TextStyle(color: Pallete.white, fontSize: 20, fontFamily: 'Jura', fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      color: Pallete.white,
+                      fontSize: 20,
+                      fontFamily: 'Jura',
+                      fontWeight: FontWeight.w600),
                   children: <TextSpan>[
                     TextSpan(
                         text: 'evolução?!\n',
@@ -63,15 +75,21 @@ class Home extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) {return configUser();})
-                  );
-                },
-                child: const Text('Começar!'),
-                style: ElevatedButton.styleFrom(primary: Pallete.primary)),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return configUser();
+                    }));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Pallete.primary,
+                    alignment: Alignment.centerLeft,
+                  ),
+                  child: const Text('Começar!')),
+            ),
             Column(
               children: const <Widget>[],
             )
@@ -79,7 +97,6 @@ class Home extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: const BottomAppBar(
-
         color: Colors.transparent,
         child: Text(
           'Todos os direitos reservados © Copyrigth 2022',
@@ -89,7 +106,6 @@ class Home extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-
       ),
     );
   }
