@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testef/TesteStatefull.dart';
-import 'package:testef/loginUser.dart';
+import 'package:testef/dev.dart';
 import 'package:testef/configUser.dart';
 import 'home.dart';
 
@@ -90,21 +89,28 @@ class Home extends StatelessWidget {
                   ),
                   child: const Text('Começar!')),
             ),
-            Column(
-              children: const <Widget>[],
-            )
           ],
         ),
       ),
-      bottomNavigationBar: const BottomAppBar(
+      bottomNavigationBar: BottomAppBar(
         color: Colors.transparent,
-        child: Text(
-          'Todos os direitos reservados © Copyrigth 2022',
-          style: TextStyle(
-            color: Pallete.white,
-            fontWeight: FontWeight.w300,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return dev();
+              }),
+            );
+          },
+          child: const Text(
+            'Todos os direitos reservados © Copyrigth 2022',
+            style: TextStyle(
+              color: Pallete.white,
+              fontWeight: FontWeight.w300,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
         ),
       ),
     );

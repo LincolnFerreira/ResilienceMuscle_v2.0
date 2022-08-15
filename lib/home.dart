@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testef/main.dart';
 
+import 'dev.dart';
+
 class home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -95,6 +97,27 @@ class home extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.transparent,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return dev();
+              }),
+            );
+          },
+          child: const Text(
+            'Todos os direitos reservados © Copyrigth 2022',
+            style: TextStyle(
+              color: Pallete.white,
+              fontWeight: FontWeight.w300,
+            ),
+            textAlign: TextAlign.center,
           ),
         ),
       ),

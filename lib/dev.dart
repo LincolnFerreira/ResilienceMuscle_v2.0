@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:testef/main.dart';
 
 class dev extends StatelessWidget {
+  final categorias = ["Web", "Java", "Metodologia", "Git", "Contato"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -42,10 +48,12 @@ class dev extends StatelessWidget {
             ),
             //Cards de informações
             Expanded(
-              flex: 2,
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              flex: 3,
+              //Fractionally permite utilizar o widthFactor e heigthFactor
+              // o "Factor" permite utilizar porcentagem em ambos ex: 0.7 = 70%
+              child: FractionallySizedBox(
+                widthFactor: 0.9,
+                child: ListView(
                   children: const [
                     //Card 1
                     SizedBox(
