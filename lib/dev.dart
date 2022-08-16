@@ -1,8 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:testef/main.dart';
 
 class dev extends StatelessWidget {
-  final categorias = ["Web", "Java", "Metodologia", "Git", "Contato"];
+  final categoriaArr = ["Web", "Linguagem de programação", "Metodologia", "Repositórios", "Contato"];
+  final subtitleArr = ["Site", "Java", "Metodologias","Git", "informações"];
+  final informacaoArr = ["html, css, js","Orientação a objetos","Agíl","github.com/Lincoln Ferreira", "github/LincolnFerreira"];
 
   @override
   Widget build(BuildContext context) {
@@ -48,112 +51,41 @@ class dev extends StatelessWidget {
             ),
             //Cards de informações
             Expanded(
-              flex: 3,
+              flex: 4,
               //Fractionally permite utilizar o widthFactor e heigthFactor
               // o "Factor" permite utilizar porcentagem em ambos ex: 0.7 = 70%
               child: FractionallySizedBox(
                 widthFactor: 0.9,
-                child: ListView(
-                  children: const [
-                    //Card 1
-                    SizedBox(
-                      width: 380,
-                      child: ExpansionTile(
-                        collapsedIconColor: Pallete.white,
-                        collapsedTextColor: Pallete.white,
-                        backgroundColor: Pallete.primary,
-                        collapsedBackgroundColor: Pallete.primary,
-                        title: Text(
-                          'Web',
-                          style: TextStyle(color: Pallete.white),
-                        ),
-                        subtitle: Text(
-                          'html, css, js, node',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        children: [
-                          ListTile(
-                            title: Text(
-                              'Expandiu!!',
-                              style: TextStyle(color: Pallete.green),
-                            ),
-                          ),
-                          ListTile(
-                            title: Text(
-                              'Expandiu!!',
-                              style: TextStyle(color: Pallete.green),
-                            ),
-                          ),
-                          ListTile(
-                            title: Text(
-                              'Expandiu!!',
-                              style: TextStyle(color: Pallete.green),
-                            ),
-                          ),
-                          ListTile(
-                            title: Text(
-                              'Expandiu!!',
-                              style: TextStyle(color: Pallete.green),
-                            ),
-                          ),
-                        ],
+                child: ListView.builder(
+                  itemCount: categoriaArr.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final categoria = categoriaArr[index];
+                    final subtitle = subtitleArr[index];
+                    final info = informacaoArr[index];
+                    return ExpansionTile(
+                      collapsedIconColor: Pallete.white,
+                      collapsedTextColor: Pallete.white,
+                      backgroundColor: Pallete.primary,
+                      collapsedBackgroundColor: Pallete.primary,
+                      title: Text(
+                        categoria,
+                        style: TextStyle(color: Pallete.white),
                       ),
-                    ),
-                    //Card 1
-
-                    SizedBox(
-                      width: 380,
-                      child: ExpansionTile(
-                        collapsedIconColor: Pallete.white,
-                        collapsedTextColor: Pallete.white,
-                        backgroundColor: Pallete.primary,
-                        collapsedBackgroundColor: Pallete.primary,
-                        title: Text(
-                          'Java',
-                          style: TextStyle(color: Pallete.white),
-                        ),
-                        subtitle: Text(
-                          'Java (basico)',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        children: [
-                          ListTile(
-                            title: Text(
-                              'Expandiu!!',
-                              style: TextStyle(color: Pallete.green),
-                            ),
-                          )
-                        ],
+                      subtitle: Text(
+                        // (subtitle != null) ? subtitle : 'nada',
+                        subtitle,
+                        style: TextStyle(color: Colors.grey),
                       ),
-                    ),
-                    //Card 1
-
-                    SizedBox(
-                      width: 380,
-                      child: ExpansionTile(
-                        collapsedIconColor: Pallete.white,
-                        collapsedTextColor: Pallete.white,
-                        backgroundColor: Pallete.primary,
-                        collapsedBackgroundColor: Pallete.primary,
-                        title: Text(
-                          'Metodologia',
-                          style: TextStyle(color: Pallete.white),
-                        ),
-                        subtitle: Text(
-                          'html, css, js',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        children: [
-                          ListTile(
-                            title: Text(
-                              'Expandiu!!',
-                              style: TextStyle(color: Pallete.green),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
+                      children: [
+                        ListTile(
+                          title: Text(
+                          info,
+                            style: TextStyle(color: Pallete.green),
+                          ),
+                        )
+                      ],
+                    );
+                  },
                 ),
               ),
             ),
@@ -163,3 +95,113 @@ class dev extends StatelessWidget {
     );
   }
 }
+// children: [
+//Card 1
+// SizedBox(
+//   width: 380,
+//   child: ExpansionTile(
+//     collapsedIconColor: Pallete.white,
+//     collapsedTextColor: Pallete.white,
+//     backgroundColor: Pallete.primary,
+//     collapsedBackgroundColor: Pallete.primary,
+//     title: Text(
+//       'Web',
+//       style: TextStyle(color: Pallete.white),
+//     ),
+//     subtitle: Text(
+//       'html, css, js, node',
+//       style: TextStyle(color: Colors.grey),
+//     ),
+//     children: [
+//       ListTile(
+//         title: Text(
+//           'Expandiu!!',
+//           style: TextStyle(color: Pallete.green),
+//         ),
+//       ),
+//       ListTile(
+//         title: Text(
+//           'Expandiu!!',
+//           style: TextStyle(color: Pallete.green),
+//         ),
+//       ),
+//       ListTile(
+//         title: Text(
+//           'Expandiu!!',
+//           style: TextStyle(color: Pallete.green),
+//         ),
+//       ),
+//       ListTile(
+//         title: Text(
+//           'Expandiu!!',
+//           style: TextStyle(color: Pallete.green),
+//         ),
+//       ),
+//     ],
+//   ),
+// ),
+// //Card 1
+//
+// SizedBox(
+//   width: 380,
+//   child: ExpansionTile(
+//     collapsedIconColor: Pallete.white,
+//     collapsedTextColor: Pallete.white,
+//     backgroundColor: Pallete.primary,
+//     collapsedBackgroundColor: Pallete.primary,
+//     title: Text(
+//       'Java',
+//       style: TextStyle(color: Pallete.white),
+//     ),
+//     subtitle: Text(
+//       'Java (basico)',
+//       style: TextStyle(color: Colors.grey),
+//     ),
+//     children: [
+//       ListTile(
+//         title: Text(
+//           'Expandiu!!',
+//           style: TextStyle(color: Pallete.green),
+//         ),
+//       )
+//     ],
+//   ),
+// ),
+// //Card 1
+//
+// SizedBox(
+//   width: 380,
+//   child: ExpansionTile(
+//     collapsedIconColor: Pallete.white,
+//     collapsedTextColor: Pallete.white,
+//     backgroundColor: Pallete.primary,
+//     collapsedBackgroundColor: Pallete.primary,
+//     title: Text(
+//       'Metodologia',
+//       style: TextStyle(color: Pallete.white),
+//     ),
+//     subtitle: Text(
+//       'html, css, js',
+//       style: TextStyle(color: Colors.grey),
+//     ),
+//     children: [
+//       ListTile(
+//         title: Text(
+//           'Expandiu!!',
+//           style: TextStyle(color: Pallete.green),
+//         ),
+//       )
+//     ],
+//   ),
+// ),
+
+// ],
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
