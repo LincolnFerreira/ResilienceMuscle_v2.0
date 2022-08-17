@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testef/main.dart';
 
-import 'dev.dart';
+import 'developerInformation.dart';
 
 class home extends StatelessWidget {
   @override

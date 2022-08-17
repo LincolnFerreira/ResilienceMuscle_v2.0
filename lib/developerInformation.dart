@@ -1,14 +1,37 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:testef/main.dart';
+import 'class/developer/dev.dart';
 
 class dev extends StatelessWidget {
-  final categoriaArr = ["Web", "Linguagem de programação", "Metodologia", "Repositórios", "Contato"];
-  final subtitleArr = ["Site", "Java", "Metodologias","Git", "informações"];
-  final informacaoArr = ["html, css, js","Orientação a objetos","Agíl","github.com/Lincoln Ferreira", "github/LincolnFerreira"];
+  final categoriaArr = [
+    "Web",
+    "Linguagem de programação",
+    "Metodologia",
+    "Repositórios",
+    "Contato"
+  ];
+  final subtitleArr = ["Site", "Java", "Metodologias", "Git", "informações"];
+  final informacaoArr = [
+    "html, css, js, node",
+    "Orientação a objetos",
+    "Agíl",
+    "github.com/Lincoln Ferreira",
+    "github/LincolnFerreira"
+  ];
+
+  /*
+   Infocards
+   */
+
+  List<CardList> infoCard = [
+    CardList("Web", "Aplicação", ["HTML", "Css", "Js"]),
+  ];
 
   @override
   Widget build(BuildContext context) {
+    print(infoCard.length);
+    print(infoCard[0].topico.length);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -25,14 +48,13 @@ class dev extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 80,
-                    height: 80,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage('assets/images/Dev.jpg'),
-                      ),
+                    child: Column(
+                      children: const [
+                        CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/Dev.jpg'),
+                            radius: 45),
+                      ],
                     ),
                   ),
                   const Padding(
@@ -61,7 +83,6 @@ class dev extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final categoria = categoriaArr[index];
                     final subtitle = subtitleArr[index];
-                    final info = informacaoArr[index];
                     return ExpansionTile(
                       collapsedIconColor: Pallete.white,
                       collapsedTextColor: Pallete.white,
@@ -77,12 +98,21 @@ class dev extends StatelessWidget {
                         style: TextStyle(color: Colors.grey),
                       ),
                       children: [
-                        ListTile(
-                          title: Text(
-                          info,
-                            style: TextStyle(color: Pallete.green),
-                          ),
-                        )
+                        ListView.builder(
+                          itemCount: infoCard[0].topico.length,
+                          itemBuilder: (BuildContext context, int indexdois) {
+                            final topico = infoCard[index].topico[indexdois];
+                            return Container(
+                              width: double.infinity,
+                              child: ListTile(
+                                title: Text(
+                                  topico,
+                                  style: TextStyle(color: Pallete.green),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     );
                   },
